@@ -37,9 +37,12 @@ Each row contained Date, Transportation, Passengers After Covid (ridership total
 #### Calculated Columns
 1. Pre-Pandemic Passengers:
 ```
-PrePandemicPassengers = 
-    'Total Estimated Ridership'[Total_Ridership] / 
-    ('Total Estimated Ridership'[Percentage]/100)
+Blanks_PrePandemicPassengers = 
+    IF(
+        'Total Estimated Ridership'[Percentage] > 0,
+        'Total Estimated Ridership'[Total_Ridership] / ('Total Estimated Ridership'[Percentage] / 100),
+        BLANK()
+    )
 ```
  
 Purpose: Estimate the ridership before the pandemic for each service and date.
@@ -101,3 +104,13 @@ YEAR('Total Estimated Ridership'[Date]) * 100 + MONTH('Total Estimated Ridership
 
 Formula: Assign a numeric index to Month and Year to ensure proper chronological sorting.
 Purpose: Maintain the correct order of months and years in visuals.
+
+8. % Change vs. Pre-Pandemic:
+
+```
+% vs Pre-Pandemic = ('Total Estimated Ridership'[Total_Ridership] / 'Total Estimated Ridership'[PrePandemicPassengers]) - 1
+```
+
+Purpose: Determine the percentage change in ridership compared to pre-pandemic levels.
+
+#### Calculated Measures
