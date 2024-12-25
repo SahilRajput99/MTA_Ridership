@@ -34,7 +34,9 @@ To make the dataset suitable for analysis, two separate transformations were per
 - After merging:
 Each row contained Date, Transportation, Passengers After Covid (ridership totals), and % vs Pre-Pandemic.
 
-### Calculated Columns
+### Step 3: Calculated Columns & Measures
+
+#### Calculated Columns
 1. Pre-Pandemic Passengers:
 ```
 Blanks_PrePandemicPassengers = 
@@ -113,7 +115,7 @@ Purpose: Maintain the correct order of months and years in visuals.
 
 Purpose: Determine the percentage change in ridership compared to pre-pandemic levels.
 
-### Calculated Measures
+#### Calculated Measures
 
 1. Pre-Pandemic Ridership:
 
@@ -168,3 +170,33 @@ IF(
 
 Purpose: Provide detailed ridership metrics in the tooltip for each data point.
 
+### Step 5: Create Visualizations in Power BI
+
+1. Scatter Chart
+This chart visualizes the relationship between post-pandemic ridership, percentage recovery, and the trend over time for each service.
+
+Steps to Build the Scatter Chart
+- Add a Scatter Chart to the Canvas:
+- Configure the Scatter Chart:
+1. X-Axis: Passengers After Covid (post-pandemic ridership).
+2. Y-Axis: % Change vs. Pre-Pandemic.
+3. Size: Post-Pandemic Ridership (to represent the total ridership as bubble size).
+4. Legend: Transportation (to distinguish services by color).
+5. Play Axis: Month and Year (for temporal animation).
+Ensure it is sorted using the Sort Month and Year column for correct chronological order.
+- Add Tooltips: Add your custom tooltip measures (Tooltip Title and Tooltip Main) to the Tooltips field.
+
+2. Area Chart
+This chart provides a time-series comparison of pre- and post-pandemic ridership for each service.
+
+Steps to Build the Area Chart
+- Add an Area Chart to the Canvas:
+- Configure the Area Chart:
+1. X-Axis: Month and Year (sorted using Sort Month and Year).
+2. Y-Axis: Add two lines:
+3. Pre-Pandemic Ridership.
+4. Post-Pandemic Ridership.
+5. Legend: Add a legend to differentiate the two lines (e.g., "Pre-Pandemic" and "Post-Pandemic").
+6. Add Filters and Slicers:
+a. Transportation Slicer
+b. Week/Weekend Slicer
