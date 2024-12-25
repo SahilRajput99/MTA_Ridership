@@ -34,7 +34,7 @@ To make the dataset suitable for analysis, two separate transformations were per
 - After merging:
 Each row contained Date, Transportation, Passengers After Covid (ridership totals), and % vs Pre-Pandemic.
 
-#### Calculated Columns
+### Calculated Columns
 1. Pre-Pandemic Passengers:
 ```
 Blanks_PrePandemicPassengers = 
@@ -113,4 +113,58 @@ Purpose: Maintain the correct order of months and years in visuals.
 
 Purpose: Determine the percentage change in ridership compared to pre-pandemic levels.
 
-#### Calculated Measures
+### Calculated Measures
+
+1. Pre-Pandemic Ridership:
+
+```
+Pre-Pandemic Ridership = 
+SUM('Total Estimated Ridership'[Blanks_PrePandemicPassengers])
+```
+
+Purpose: Calculate the total estimated ridership before the pandemic across all services.
+
+2. Post-Pandemic Ridership:
+
+```
+Post-Pandemic Ridership = 
+SUM('Total Estimated Ridership'[Total_Ridership])
+```
+
+Purpose: Calculate the total post-pandemic ridership across all services.
+
+### Custom Tooltip Measures
+
+1. Tooltip Title:
+
+
+
+Purpose: Display the selected month, year, and whether the data point represents weekends or weekdays.
+
+2. Tooltip Main Content:
+
+```
+ VAR service = 
+IF(
+    ISFILTERED('Total Estimated Ridership'[Service]),
+    IF(
+        DISTINCTCOUNT('Total Estimated Ridership'[Service]) = 1,
+        SELECTEDVALUE('Total Estimated Ridership'[Service]),
+        IF(
+            DISTINCTCOUNT('Total Estimated Ridership'[Service]) = 7,
+            "All Services",
+            CONCATENATEX(
+                VALUES('Total Estimated Ridership'[Service]),
+                'Total Estimated Ridership'[Service],
+                ", ",
+                'Total Estimated Ridership'[Service],
+                ASC
+            )
+        )
+    ),
+    "All Services"
+)
+```
+
+Purpose: Provide detailed ridership metrics in the tooltip for each data point.
+
