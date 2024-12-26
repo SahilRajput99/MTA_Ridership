@@ -205,3 +205,9 @@ b. Week/Weekend Slicer
 
 ![Total_Ridership](https://github.com/user-attachments/assets/cecd386b-248a-4b00-9528-f398c164eb5a)
 
+3. TootTip
+
+![Toottip](https://github.com/user-attachments/assets/74621795-bcac-4185-bd17-f8422cc98f2b)
+
+### Step 6: Insights and Sharing
+
