@@ -211,3 +211,10 @@ b. Week/Weekend Slicer
 
 ### Step 6: Insights and Sharing
 
+1. What was the share of traffic by service before the pandemic? Did it change?
+
+2. Which service saw the biggest drop-off in traffic? Has it recovered?
+
+3. Which service was the fastest to recover?
+
+4. When are all the services estimated to return to pre-pandemic levels?
