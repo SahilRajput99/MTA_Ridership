@@ -186,6 +186,8 @@ Steps to Build the Scatter Chart
 Ensure it is sorted using the Sort Month and Year column for correct chronological order.
 - Add Tooltips: Add your custom tooltip measures (Tooltip Title and Tooltip Main) to the Tooltips field.
 
+![Pre_Post Pandemic Data](https://github.com/user-attachments/assets/6a7da942-ea98-40fe-8fe9-8e00c037b9e5)
+
 2. Area Chart
 This chart provides a time-series comparison of pre- and post-pandemic ridership for each service.
 
@@ -200,3 +202,6 @@ Steps to Build the Area Chart
 6. Add Filters and Slicers:
 a. Transportation Slicer
 b. Week/Weekend Slicer
+
+![Total_Ridership](https://github.com/user-attachments/assets/cecd386b-248a-4b00-9528-f398c164eb5a)
+
